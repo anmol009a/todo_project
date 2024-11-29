@@ -2,6 +2,7 @@ from django.test import TestCase
 from rest_framework.test import APIClient
 from django.contrib.auth.models import User
 
+
 class TodoIntegrationTestCase(TestCase):
     def setUp(self):
         self.client = APIClient()
@@ -13,7 +14,7 @@ class TodoIntegrationTestCase(TestCase):
         create_data = {
             "title": "Integration Task",
             "description": "Integration Description",
-            "status": "OPEN"
+            "status": "OPEN",
         }
         response = self.client.post("/api/todos/", create_data)
         self.assertEqual(response.status_code, 201)
@@ -28,7 +29,7 @@ class TodoIntegrationTestCase(TestCase):
         update_data = {
             "title": "Updated Integration Task",
             "description": "Updated Description",
-            "status": "WORKING"
+            "status": "WORKING",
         }
         response = self.client.put(f"/api/todos/{todo_id}/", update_data)
         self.assertEqual(response.status_code, 200)

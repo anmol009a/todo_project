@@ -1,6 +1,7 @@
 from django.test import TestCase
 from todo_app.serializers import TodoSerializer
 
+
 class TodoSerializerTestCase(TestCase):
     def test_todo_serializer(self):
         todo_data = {

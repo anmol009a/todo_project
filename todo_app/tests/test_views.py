@@ -3,6 +3,7 @@ from rest_framework.test import APIClient
 from django.contrib.auth.models import User
 from todo_app.models import Todo
 
+
 class TodoViewSetTestCase(TestCase):
     def setUp(self):
         self.client = APIClient()
@@ -11,7 +12,7 @@ class TodoViewSetTestCase(TestCase):
         self.todo = Todo.objects.create(
             title="Sample Task",
             description="Sample Description",
-            status="OPEN"
+            status="OPEN",
         )
 
     def test_list_todos(self):
@@ -23,7 +24,7 @@ class TodoViewSetTestCase(TestCase):
         data = {
             "title": "New Task",
             "description": "New Description",
-            "status": "OPEN"
+            "status": "OPEN",
         }
         response = self.client.post("/api/todos/", data)
         self.assertEqual(response.status_code, 201)

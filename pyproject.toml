@@ -1,4 +1,22 @@
 [tool.black]
-line-length = 100
+line-length = 89
 target-version = ['py311']
 skip-string-normalization = true
+include = '\.pyi?$'
+    exclude = '''
+    /(
+        \.git
+      | \.hg
+      | \.mypy_cache
+      | \.tox
+      | \.venv
+      | _build
+      | buck-out
+      | build
+      | dist
+
+      # The following are specific to Black, you probably don't want those.
+      | blib2to3
+      | tests/data
+    )/
+  '''
