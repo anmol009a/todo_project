@@ -55,7 +55,7 @@ class AdminTodoE2ETest(LiveServerTestCase):
         # Navigate to Todo section and create a new item
         self.driver.find_element(By.LINK_TEXT, "Todos").click()
         WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.LINK_TEXT, "Add todo"))
+            EC.presence_of_element_located((By.LINK_TEXT, "ADD TODO"))
         ).click()
 
         self.driver.find_element(By.NAME, "title").send_keys("Test Todo")
