@@ -3,5 +3,4 @@ black
 flake8
 pre-commit
 coverage
-sphinx
-sphinx-autoapi
+pdoc
