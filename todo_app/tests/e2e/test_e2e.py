@@ -16,9 +16,6 @@ class AdminTodoE2ETest(LiveServerTestCase):
         options = ChromeOptions()
         # options.headless = False  # Run in normal mode
         options.headless = True
-        options.add_argument("--remote-debugging-port=9222")
-        options.add_argument("--start-maximized")  # Start browser maximized
-        # cls.driver = webdriver.Chrome(service=Service("path_to_chromedriver"), options=options)
         cls.driver = webdriver.Chrome(options=options)
 
     @classmethod
