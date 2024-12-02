@@ -42,7 +42,7 @@ jobs:
           python manage.py test
 
       - name: Run Flake8
-        run: flake8 --config .flake8 .
+        run: flake8 .
 
       - name: Run Black
-        run: black --config pyproject.toml --check .
+        run: black --check .
