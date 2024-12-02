@@ -32,6 +32,7 @@ class AdminTodoE2ETest(LiveServerTestCase):
         cls.driver = webdriver.Chrome(
             service=Service(ChromeDriverManager().install()), options=options
         )
+        cls.driver.implicitly_wait(10)
 
     @classmethod
     def tearDownClass(cls):
