@@ -15,6 +15,15 @@ A simple To-Do List backend application built with Django and Django Rest Framew
   - [Authentication](#authentication)
   - [Testing](#testing)
     - [Run Tests](#run-tests)
+  - [Coverage](#coverage)
+    - [Runs](#runs)
+      - [Unit Test Coverage](#unit-test-coverage)
+      - [Integration Test Coverage](#integration-test-coverage)
+      - [Code Coverage](#code-coverage)
+    - [Reports](#reports)
+      - [Unit Test Report](#unit-test-report)
+      - [Integration Test Report](#integration-test-report)
+      - [Code Test Report](#code-test-report)
   - [Deployment](#deployment)
   - [Generated Documentation](#generated-documentation)
   - [Directory Structure](#directory-structure)
@@ -119,6 +128,40 @@ A simple To-Do List backend application built with Django and Django Rest Framew
 python manage.py test
 ```
 
+## Coverage
+
+### Runs
+
+#### Unit Test Coverage
+```bash
+coverage run --context="unit_test" --include="*/unit/*" --omit="*__init__*" manage.py test todo_app.tests.unit
+```
+
+#### Integration Test Coverage
+``` bash
+coverage run --context="integration_test" --include="*/integration/*" --omit="*__init__*" manage.py test todo_app.tests.integration
+```
+
+#### Code Coverage
+```bash
+coverage run --context="code" --omit="*__init__*" manage.py test
+```
+
+### Reports
+
+#### Unit Test Report
+```bash
+coverage html --fail-under=100 --contexts="unit_test" -d coverage_html_report_unit_test
+```
+#### Integration Test Report
+```bash
+coverage html --fail-under=100 --contexts="integration_test" -d coverage_html_report_integration_test
+```
+
+#### Code Test Report
+```bash
+coverage html --contexts="code"
+```
 
 ## Deployment
 <!-- todo: deploy app -->
