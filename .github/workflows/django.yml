@@ -16,6 +16,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: 120
+          install-chromedriver: true
+          install-dependencies: true
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
         with:
@@ -34,7 +40,6 @@ jobs:
 
       - name: Run tests
         run: |
-          sudo apt-get install chromium-chromedriver
           python manage.py test
 
       - name: Run Flake8
