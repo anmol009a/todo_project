@@ -9,7 +9,6 @@ import chromedriver_autoinstaller
 
 # Imports to get chrome driver working
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 
 
 # Import options for headless mode
@@ -22,7 +21,7 @@ class AdminTodoE2ETest(LiveServerTestCase):
         super().setUpClass()
 
         # Ensure ChromeDriver matches the installed version of Chrome
-        chromedriver_autoinstaller.install()
+        path_chromedriver = chromedriver_autoinstaller.install()
 
         # Set up WebDriver options for Chrome
         options = ChromeOptions()
@@ -30,7 +29,7 @@ class AdminTodoE2ETest(LiveServerTestCase):
         options.add_argument('--headless')
         # Setup
         cls.driver = webdriver.Chrome(
-            service=Service(ChromeDriverManager().install()), options=options
+            service=Service(path_chromedriver), options=options
         )
         cls.driver.implicitly_wait(10)
 
