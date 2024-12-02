@@ -78,6 +78,7 @@ A simple To-Do List backend application built with Django and Django Rest Framew
 3. Install dependencies:
     ```bash
     pip install -r requirements.txt
+    pip install -r dev_requirements.txt
     ```
 
 4. Apply database migrations:
@@ -104,9 +105,9 @@ A simple To-Do List backend application built with Django and Django Rest Framew
 
 ## API Documentation
 
-   - DRF Browsable API: BASEURL/api/swagger-ui
-   - Swagger API: BASEURL/api/todos
-   - ReDoc API: BASEURL/api/redoc
+   - DRF Browsable API: BASEURL/api/todos/
+   - Swagger API: BASEURL/api/swagger-ui/
+   - ReDoc API: BASEURL/api/redoc/
 
 | Method | Endpoint | Description              |
 | ------ | -------- | ------------------------ |
@@ -129,6 +130,8 @@ python manage.py test
 ```
 
 ## Coverage
+
+![Coverage Report](coverage.png)
 
 ### Runs
 
