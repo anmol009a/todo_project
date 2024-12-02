@@ -101,7 +101,7 @@ A simple To-Do List backend application built with Django and Django Rest Framew
 
 2. The app will be accessible at:
    - API: http://127.0.0.1:8000/api/todos/
-   - Admin Panel: http://127.0.0.1:8000/admin/
+   - Admin Panel: http://127.0.0.1:8000/
 
 ## API Documentation
 

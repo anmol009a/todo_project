@@ -52,7 +52,7 @@ class AdminTodoE2ETest(LiveServerTestCase):
 
     def admin_login(self):
         # Login to the Django admin panel
-        self.driver.get(f"{self.live_server_url}/admin/")
+        self.driver.get(f"{self.live_server_url}")
         username_input = self.driver.find_element(By.NAME, "username")
         password_input = self.driver.find_element(By.NAME, "password")
 
