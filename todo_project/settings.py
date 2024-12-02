@@ -136,6 +136,15 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
+INSTALLED_APPS += ['drf_spectacular']
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Todo API',
+    'DESCRIPTION': 'API documentation for the Todo application',
+    'VERSION': '1.0.0',
+}
