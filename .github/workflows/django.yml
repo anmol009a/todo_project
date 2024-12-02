@@ -32,7 +32,14 @@ jobs:
           pip install -r requirements.txt 
           pip install -r dev_requirements.txt
 
+      - name: Install Chrome
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable
+
       - name: Run Tests
+         env:
+          DISPLAY: :99.0  # Required for headless mode
         run: |
           python manage.py test
 

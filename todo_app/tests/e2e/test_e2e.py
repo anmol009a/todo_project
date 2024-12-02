@@ -6,16 +6,22 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options as ChromeOptions
+import chromedriver_autoinstaller
 
 
 class AdminTodoE2ETest(LiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+
+        # Ensure ChromeDriver matches the installed version of Chrome
+        chromedriver_autoinstaller.install()
         # Set up WebDriver options for Chrome
         options = ChromeOptions()
         # options.headless = False  # Run in normal mode
         options.headless = True
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
         cls.driver = webdriver.Chrome(options=options)
 
     @classmethod
