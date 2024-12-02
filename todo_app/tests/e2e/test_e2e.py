@@ -14,7 +14,10 @@ class AdminTodoE2ETest(LiveServerTestCase):
         super().setUpClass()
         # Set up WebDriver options for Chrome
         options = ChromeOptions()
-        options.headless = False  # Run in normal mode
+        # options.headless = False  # Run in normal mode
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
         options.add_argument("--start-maximized")  # Start browser maximized
         # cls.driver = webdriver.Chrome(service=Service("path_to_chromedriver"), options=options)
         cls.driver = webdriver.Chrome(options=options)
