@@ -4,9 +4,16 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options as ChromeOptions
 import chromedriver_autoinstaller
+
+
+# Imports to get chrome driver working
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
+
+# Import options for headless mode
+from selenium.webdriver.chrome.options import Options as ChromeOptions
 
 
 class AdminTodoE2ETest(LiveServerTestCase):
@@ -16,13 +23,15 @@ class AdminTodoE2ETest(LiveServerTestCase):
 
         # Ensure ChromeDriver matches the installed version of Chrome
         chromedriver_autoinstaller.install()
+
         # Set up WebDriver options for Chrome
         options = ChromeOptions()
-        # options.headless = False  # Run in normal mode
-        options.headless = True
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
-        cls.driver = webdriver.Chrome(options=options)
+        # Option setup to run in headless mode (in order to run this in GH Actions)
+        options.add_argument('--headless')
+        # Setup
+        cls.driver = webdriver.Chrome(
+            service=Service(ChromeDriverManager().install()), options=options
+        )
 
     @classmethod
     def tearDownClass(cls):

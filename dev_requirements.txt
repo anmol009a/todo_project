@@ -1,5 +1,6 @@
 selenium
 chromedriver-autoinstaller
+webdriver-manager
 black
 flake8
 pre-commit
