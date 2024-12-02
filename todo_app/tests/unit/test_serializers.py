@@ -7,7 +7,7 @@ class TodoSerializerTestCase(TestCase):
         todo_data = {
             "title": "Test Task",
             "description": "Test Description",
-            "due_date": "2024-12-01",
+            "due_date": "2050-12-30",
             "status": "OPEN",
         }
         serializer = TodoSerializer(data=todo_data)
