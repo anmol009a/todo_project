@@ -1,7 +1,9 @@
 # temp files
 .vscode
-.env
 .coverage
+
+# sensitive files
+.env
 
 # Python
 *.py[cod]
