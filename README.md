@@ -57,7 +57,7 @@ A simple To-Do List backend application built with Django and Django Rest Framew
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/anmol009a/todo_project.git
+    git clone https://<personal_access_token>@github.com/anmol009a/todo_project.git
     cd todo_project
     ```
 2. Set up a virtual environment:
@@ -95,7 +95,9 @@ A simple To-Do List backend application built with Django and Django Rest Framew
 
 ## API Documentation
 
-URL: BASEURL/api/todos
+   - DRF Browsable API: BASEURL/api/swagger-ui
+   - Swagger API: BASEURL/api/todos
+   - ReDoc API: BASEURL/api/redoc
 
 | Method | Endpoint | Description              |
 | ------ | -------- | ------------------------ |
@@ -120,12 +122,12 @@ python manage.py test
 
 ## Deployment
 <!-- todo: deploy app -->
-- Hosted on PythonAnywhere (or your preferred platform).
-- Visit the live app here.
+- Hosted on PythonAnywhere.
+- Visit the live app [here](https://anmol009a.pythonanywhere.com/).
 
 ## Generated Documentation
 <!-- todo: add link -->
-The codebase documentation is hosted as a static site [here](#generated-documentation).
+The codebase documentation is hosted as a static site [here](https://todo.static.domains/todo_app/index.html).
 
 ## Directory Structure
 ```
@@ -133,7 +135,7 @@ todo_project/
 ├── todo_app/
 │   ├── migrations/
 │   ├── templates/
-│   ├── tests/
+│   ├── tests/         
 │   ├── views.py
 │   ├── models.py
 │   ├── urls.py
@@ -145,9 +147,7 @@ todo_project/
 │   └── asgi.py
 ├── requirements.txt
 ├── README.md
-├── manage.py
-├── .flake8
-└── pyproject.toml
+└── manage.py
 ```
 
 ## Contributors
