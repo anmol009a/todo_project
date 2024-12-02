@@ -15,10 +15,8 @@ class AdminTodoE2ETest(LiveServerTestCase):
         # Set up WebDriver options for Chrome
         options = ChromeOptions()
         # options.headless = False  # Run in normal mode
-        options.add_argument('--headless')
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
-        options.add_argument("--start-maximized")  # Start browser maximized
+        options.headless = True
+        # options.add_argument("--start-maximized")  # Start browser maximized
         # cls.driver = webdriver.Chrome(service=Service("path_to_chromedriver"), options=options)
         cls.driver = webdriver.Chrome(options=options)
 
@@ -58,7 +56,10 @@ class AdminTodoE2ETest(LiveServerTestCase):
         # Navigate to Todo section and create a new item
         self.driver.find_element(By.LINK_TEXT, "Todos").click()
         WebDriverWait(self.driver, 10).until(
+            # TODO: make comparision case insensitive
+            # when headless match "Add todo"
             EC.presence_of_element_located((By.LINK_TEXT, "ADD TODO"))
+            # EC.presence_of_element_located((By.LINK_TEXT, "Add todo"))
         ).click()
 
         self.driver.find_element(By.NAME, "title").send_keys("Test Todo")
