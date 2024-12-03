@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: ToDo App
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && python manage.py migrate
+    startCommand: gunicorn todo_project.wsgi:application
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        value: 
+      - key: DATABASE_URL
+        value: your-database-url
+      - key: DEBUG_VALUE
+        value: False
