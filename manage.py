@@ -8,7 +8,7 @@ from todo_project.settings import base
 def main():
     """Run administrative tasks."""
 
-    if base.DEBUG:
+    if base.DEBUG is True:
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'todo_project.settings.local')
     else:
         os.environ.setdefault(
