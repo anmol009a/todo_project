@@ -1,6 +1,7 @@
 # temp files
 .vscode
 .coverage
+static
 
 # sensitive files
 .env
