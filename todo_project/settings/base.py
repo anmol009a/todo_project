@@ -15,10 +15,10 @@ from dotenv import load_dotenv
 import os
 
 
-load_dotenv()  # take environment variables from .env.
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+load_dotenv(BASE_DIR / '.env')  # take environment variables from .env.
 
 
 # Quick-start development settings - unsuitable for production
