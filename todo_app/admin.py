@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.core.exceptions import ValidationError
-from .models import Todo
+from todo_app.models import Todo, Tag
 from django.utils.timezone import now
 
 
@@ -31,3 +31,9 @@ class TodoAdmin(admin.ModelAdmin):
                 "Due date cannot be earlier than the creation timestamp. {{timestamp}}"
             )
         return due_date
+
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    list_display = ("id", "name")
+    search_fields = ("name",)

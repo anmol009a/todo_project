@@ -20,6 +20,7 @@ class AdminTodoE2ETest(LiveServerTestCase):
     def setUpClass(cls):
         super().setUpClass()
 
+        # ensure to run collectstatic
         # Ensure ChromeDriver matches the installed version of Chrome
         path_chromedriver = chromedriver_autoinstaller.install()
 
@@ -69,10 +70,9 @@ class AdminTodoE2ETest(LiveServerTestCase):
         # Navigate to Todo section and create a new item
         self.driver.find_element(By.LINK_TEXT, "Todos").click()
         WebDriverWait(self.driver, 10).until(
+            # TODO: make sure to run collectstatic
             # TODO: make comparision case insensitive
-            # when headless match "Add todo"
             EC.presence_of_element_located((By.LINK_TEXT, "ADD TODO"))
-            # EC.presence_of_element_located((By.LINK_TEXT, "Add todo"))
         ).click()
 
         self.driver.find_element(By.NAME, "title").send_keys("Test Todo")

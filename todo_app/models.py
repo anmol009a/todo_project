@@ -5,6 +5,13 @@ from django.utils.timezone import now
 
 
 # Create your models here.
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Todo(models.Model):
     STATUS_CHOICES = [
         ('OPEN', 'Open'),
@@ -19,8 +26,8 @@ class Todo(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=1000)
     due_date = models.DateField(null=True, blank=True)
-    tags = models.JSONField(default=list, blank=True)  # Ensure uniqueness in logic
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='OPEN')
+    tags = models.ManyToManyField(Tag, related_name="todos", blank=True)
 
     def clean(self):
         super().clean()
@@ -31,10 +38,6 @@ class Todo(models.Model):
             raise ValidationError(
                 _("Due date cannot be earlier than the creation timestamp.")
             )
-
-    def save(self, *args, **kwargs):
-        self.tags = list(set(self.tags))  # Remove duplicate tags
-        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title

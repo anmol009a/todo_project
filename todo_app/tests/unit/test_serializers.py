@@ -9,6 +9,7 @@ class TodoSerializerTestCase(TestCase):
             "description": "Test Description",
             "due_date": "2050-12-30",
             "status": "OPEN",
+            "tags": [{"name": "important"}],
         }
         serializer = TodoSerializer(data=todo_data)
         self.assertTrue(serializer.is_valid())
