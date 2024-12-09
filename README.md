@@ -170,6 +170,7 @@ coverage html --contexts="code"
 <!-- todo: deploy app -->
 - Hosted on PythonAnywhere.
 - Visit the live app [here](https://anmol009a.pythonanywhere.com/).
+- Use username: guestuser, password: Abcd@1234
 
 ## Generated Documentation
 <!-- todo: add link -->
